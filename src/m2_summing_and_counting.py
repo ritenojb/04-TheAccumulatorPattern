@@ -7,8 +7,8 @@ A subsequent module lets you practice the ACCUMULATOR pattern in another classic
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jacob Ritenour.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 # ----------------------------------------------------------------------
@@ -21,6 +21,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 #        -- IN the loop?
 #        -- AFTER the loop?
 # ----------------------------------------------------------------------
+import math
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_sum_more_cosines()
@@ -67,6 +68,18 @@ def run_test_sum_more_cosines():
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected2 = 0.02082  # This is APPROXIMATELY the correct answer.
+    answer2 = sum_more_cosines(-4, 1)
+    print('Test 2 expected:', expected2, '(approximately)')
+    print('       actual:  ', answer2)
+
+    # Test 3:
+    expected3 = 1.66445  # This is APPROXIMATELY the correct answer.
+    answer3 = sum_more_cosines(-2, 1)
+    print('Test 3 expected:', expected3, '(approximately)')
+    print('       actual:  ', answer3)
+
 
 def sum_more_cosines(m, n):
     """
@@ -82,6 +95,12 @@ def sum_more_cosines(m, n):
             cos(-4) + cos(-3) + cos(-2) + cos(-1) + cos(0) + cos(1)
          which is approximately 0.02082.
     """
+    total = math.cos(m)
+    for k in range(n-m+1):
+        total = total + math.cos(m+1)
+
+    return total
+
     # ------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
