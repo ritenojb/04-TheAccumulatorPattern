@@ -95,14 +95,13 @@ def sum_more_cosines(m, n):
             cos(-4) + cos(-3) + cos(-2) + cos(-1) + cos(0) + cos(1)
          which is approximately 0.02082.
     """
-    total = math.cos(m)
-    for k in range(n-m+1):
-        total = total + math.cos(m+1)
-
+    total = 0
+    for k in range (n-m+1):
+        total = total + math.cos(m+k)
     return total
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #   That is called TEST-DRIVEN DEVELOPMENT (TDD).
     #
